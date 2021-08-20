@@ -61,7 +61,7 @@ Note that the SNAKE has a very low amount of files (76).
 
 `tacobakker@MacBook-Pro-van-Taco:~/Downloads/ANIMALS|⇒  ls -l`\
 `total 0`\
-`drwxr-xr-x@  76  tacobakker  staff   2432 Aug 18 13:40 SNAKE`\
+`drwxr-xr-x@ &nbsp;76  tacobakker  staff   2432 Aug 18 13:40 SNAKE`\
 `drwxr-xr-x@ 723 tacobakker  staff  23136 Aug 17 18:09 TIGER`\
 `drwxr-xr-x@ 821 tacobakker  staff  26272 Aug 17 18:09 TORTOISE`\
 `drwxr-xr-x@ 733 tacobakker  staff  23456 Aug 17 18:09 WALRUS`\
@@ -87,11 +87,11 @@ the structure should look something like this:
 `│   ├── WOLF`\
 `│   └── ZEBRA`\
 `└── train`\
-`    ├── SNAKE`\
+`    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── SNAKE`\
 `    ├── TIGER`\
 `    ├── TORTOISE`\
 `    ├── WALRUS`\
 `    ├── WOLF`\
-`    └── ZEBRA`\
+`    └── ZEBRA`
 
 ## Part 5: Make the R script that generates the model
