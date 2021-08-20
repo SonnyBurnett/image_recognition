@@ -78,18 +78,18 @@ You can use the script splitdata.sh to do all of this automatically.
 Suppose you store the data in a folder called testwild,
 the structure should look something like this:
 
-testwild
-├── test
-│   ├── SNAKE
-│   ├── TIGER
-│   ├── TORTOISE
-│   ├── WALRUS
-│   ├── WOLF
-│   └── ZEBRA
-└── train
-    ├── SNAKE
-    ├── TIGER
-    ├── TORTOISE
-    ├── WALRUS
-    ├── WOLF
-    └── ZEBRA
+testwild\
+├── test\
+│   ├── SNAKE\
+│   ├── TIGER\
+│   ├── TORTOISE\
+│   ├── WALRUS\
+│   ├── WOLF\
+│   └── ZEBRA\
+└── train\
+    ├── SNAKE\
+    ├── TIGER\
+    ├── TORTOISE\
+    ├── WALRUS\
+    ├── WOLF\
+    └── ZEBRA\
