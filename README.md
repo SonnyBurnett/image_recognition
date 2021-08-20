@@ -75,3 +75,21 @@ We now need to split the data in a TRAIN set and a TEST set.
 - Move at least 5 pictures per class from the train folder to the test folder.
 
 You can use the script splitdata.sh to do all of this automatically.
+Suppose you store the data in a folder called testwild,
+the structure should look something like this:
+
+testwild
+├── test
+│   ├── SNAKE
+│   ├── TIGER
+│   ├── TORTOISE
+│   ├── WALRUS
+│   ├── WOLF
+│   └── ZEBRA
+└── train
+    ├── SNAKE
+    ├── TIGER
+    ├── TORTOISE
+    ├── WALRUS
+    ├── WOLF
+    └── ZEBRA
