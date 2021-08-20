@@ -17,16 +17,26 @@ Goal: Build an Image Recognition web app, using your own photos.
 
 ## Part 2: prepare your computer
 
-Install R
-[Download R Mac]https://cran.r-project.org/bin/macosx/
-[Download R Windows]https://cran.r-project.org/bin/windows/base/
+*Install R*
 
-Install R Studio
-[Download Rstudio]https://www.rstudio.com/products/rstudio/download/
+Download R Mac
+https://cran.r-project.org/bin/macosx/
+
+Download R Windows
+https://cran.r-project.org/bin/windows/base/
+
+*Install R Studio*
+
+Download Rstudio
+https://www.rstudio.com/products/rstudio/download/
 
 For this workshop you need some dependencies from Python.
 If you don't have Python on your machine install it:
-[download python mac]https://www.python.org/downloads/macos/
-[download python windows]https://www.python.org/downloads/windows/
+
+download python mac
+https://www.python.org/downloads/macos/
+
+download python windows
+https://www.python.org/downloads/windows/
 
 ## Part 3: find a project
