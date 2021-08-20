@@ -54,11 +54,24 @@ Kaggle is my favorite, but there are many others.
 
 ## Part 4: organizing your data
 
+To start with your data must be organized in separate folders per class.
+In the example below I have selected 6 animals.
+Every folder contains a number of jpg photos of an animal species.
+Note that the SNAKE has a very low amount of files (76).
+
 `tacobakker@MacBook-Pro-van-Taco:~/Downloads/ANIMALS|⇒  ls -l`\
 `total 0`\
-`drwxr-xr-x@  76 tacobakker  staff   2432 Aug 18 13:40 SNAKE`\
+`drwxr-xr-x@  76  tacobakker  staff   2432 Aug 18 13:40 SNAKE`\
 `drwxr-xr-x@ 723 tacobakker  staff  23136 Aug 17 18:09 TIGER`\
 `drwxr-xr-x@ 821 tacobakker  staff  26272 Aug 17 18:09 TORTOISE`\
 `drwxr-xr-x@ 733 tacobakker  staff  23456 Aug 17 18:09 WALRUS`\
 `drwxr-xr-x@ 907 tacobakker  staff  29024 Aug 17 18:09 WOLF`\
-`drwxr-xr-x@ 878 tacobakker  staff  28096 Aug 17 18:09 ZEBRA`\
+`drwxr-xr-x@ 878 tacobakker  staff  28096 Aug 17 18:09 ZEBRA`
+
+We now need to split the data in a TRAIN set and a TEST set.
+- Create a train folder and a test folder.
+- Copy all downloaded folders to the train folder.
+- In the test folder, create a sub-folder for every class.
+- Move at least 5 pictures per class from the train folder to the test folder.
+
+You can use the script splitdata.sh to do all of this automatically.
