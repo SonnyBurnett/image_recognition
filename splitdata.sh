@@ -15,14 +15,14 @@ for d in $SOURCEPATH/*/; do
    if (( NUM_FILES < 100 )); then
      echo "[WARN] Low amount of training data."
    fi
-   echo "[INFO] Copying $NUM_FILES pictures to $NAME train folder"
+   echo "[INFO] Copying  $NUM_FILES pictures to $NAME train folder"
    cp -R $SOURCEPATH/$NAME/ $DATAPATH/train/$NAME
    cd $DATAPATH/train/$NAME
    echo "[INFO] Renaming $NUM_FILES $NAME files"
    ls -v | cat -n | while read n f; do mv -n "$f" "$n.jpg"; done 
    mkdir $DATAPATH/test/$NAME
    cd $DATAPATH/train/$NAME
-   echo "[INFO] Moving 5 files from $NAME train to $NAME test folder"
+   echo "[INFO] Moving   5 files from $NAME train to $NAME test folder"
    ls -v | head -n5 | xargs -J X mv X $DATAPATH/test/$NAME
 done
 
