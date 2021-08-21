@@ -4,7 +4,7 @@
 
 ### By Taco Bakker
 
-Goal: Build an Image Recognition web app, using your own photos.
+Goal: Build an Image Recognition web app, using your own selected photos.
 
 ---
 
@@ -38,8 +38,7 @@ If you don't have Python on your machine install it:
 
 What is it that you want to recognise?
 What tree is this? What animal? What city?
-Note that you need at least 100 jpg pictures per class,
-to make the algorithm work properly.
+Note that you need at least 100 jpg pictures per class to make the algorithm work properly.
 And preferably more. (say 500).
 Downloading these one-by-one will take you a lot of time.
 So try to find a ready-to-use dataset.
@@ -54,14 +53,14 @@ Kaggle is my favorite, but there are many others.
 
 ## Part 4: organizing your data
 
-To start with your data must be organized in separate folders per class.
+Your data must be organized in separate folders per class.
 In the example below I have selected 6 animals.
 Every folder contains a number of jpg photos of an animal species.
 Note that the SNAKE has a very low amount of files (76).
 
 `tacobakker@MacBook-Pro-van-Taco:~/Downloads/ANIMALS|⇒  ls -l`\
 `total 0`\
-`drwxr-xr-x@  76  tacobakker  staff   2432 Aug 18 13:40 SNAKE`\
+`drwxr-xr-x@   76  tacobakker  staff   2432 Aug 18 13:40 SNAKE`\
 `drwxr-xr-x@ 723 tacobakker  staff  23136 Aug 17 18:09 TIGER`\
 `drwxr-xr-x@ 821 tacobakker  staff  26272 Aug 17 18:09 TORTOISE`\
 `drwxr-xr-x@ 733 tacobakker  staff  23456 Aug 17 18:09 WALRUS`\
@@ -75,10 +74,11 @@ We now need to split the data in a TRAIN set and a TEST set.
 - Move at least 5 pictures per class from the train folder to the test folder.
 
 You can use the script *splitdata.sh* to do all of this automatically.
-Suppose you store the data in a folder called testwild,
+
+Suppose you store the data in a folder called ANIMALS,
 the structure should look something like this:
 
-`testwild`\
+`ANIMALS`\
 `├── test`\
 `│   ├── SNAKE`\
 `│   ├── TIGER`\
@@ -94,4 +94,33 @@ the structure should look something like this:
 `        ├── WOLF`\
 `        └── ZEBRA`
 
-## Part 5: Make the R script that generates the model
+## Part 5: Prepare the R script that generates the model
+
+- [Copy the example code from GitHub](https://github.com/SonnyBurnett/image_recognition)
+- Open Rstudio
+- Open the file wildlife.R
+- Save it under your own name in a folder of your choice
+
+Now you need to install some R packages.
+- Go to the "Console" in Rstudio. (Usually the lower left window)
+- Note: This window will have 3 tabs. Console, Terminal, Jobs.
+- type:
+- `install_tensorflow(extra_packages="pillow")`
+- `install_keras()`
+- `install.packages("tidyverse")`
+- `install.packages("reticulate")`
+
+- Now go to tab "Terminal". Here we will install some Python dependencies.
+- type: (either pip3 or pip)
+- `pip3 install --upgrade pip`
+- `pip3 install --user numpy scipy matplotlib ipython jupyter pandas sympy nose`
+
+*TensorFlow* is an end-to-end open source platform for machine learning.
+*Keras* is a deep learning API written in *Python*,
+running on top of the machine learning platform *TensorFlow*.
+Because this is written in Python we need some Python libraries,
+which we install with pip.
+
+The *reticulate* package provides a comprehensive set of tools
+for interoperability between Python and R.
+*Tidyverse* is a collection of R packages designed for data science.
