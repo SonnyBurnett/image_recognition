@@ -51,10 +51,18 @@ Kaggle is my favorite, but there are many others.
 [the Visual Genome](http://visualgenome.org/),
 [COCO](https://cocodataset.org/#home)
 
+In the example I have used these datasets:
+- https://www.kaggle.com/biancaferreira/african-wildlife
+- https://www.kaggle.com/jerrinbright/cheetahtigerwolf
+
 ## Part 4: organizing your data
 
 Your data must be organized in separate folders per class.
 In the example below I have selected 6 animals.
+Note: limit your classes to 5-6 when you start.
+Deep Learning requires a lot of computer power.
+If your computer can handle it, you can add more classes.
+
 Every folder contains a number of jpg photos of an animal species.
 Note that the SNAKE has a very low amount of files (76).
 
@@ -94,17 +102,17 @@ the structure should look something like this:
 `        ├── WOLF`\
 `        └── ZEBRA`
 
-## Part 5: Prepare the R script that generates the model
+## Part 5: Prepare Rstudio
 
 - [Copy the example code from GitHub](https://github.com/SonnyBurnett/image_recognition)
 - Open Rstudio
-- Open the file wildlife.R
+- Open the file trainModel.R
 - Save it under your own name in a folder of your choice
 
 Now you need to install some R packages.
 - Go to the "Console" in Rstudio. (Usually the lower left window)
 - Note: This window will have 3 tabs. Console, Terminal, Jobs.
-- type:
+- type: (don't get scared by red text)
 - `install_tensorflow(extra_packages="pillow")`
 - `install_keras()`
 - `install.packages("tidyverse")`
@@ -118,9 +126,10 @@ Now you need to install some R packages.
 *TensorFlow* is an end-to-end open source platform for machine learning.
 *Keras* is a deep learning API written in *Python*,
 running on top of the machine learning platform *TensorFlow*.
-Because this is written in Python we need some Python libraries,
+Keras needs some Python libraries,
 which we install with pip.
 
-The *reticulate* package provides a comprehensive set of tools
-for interoperability between Python and R.
+The *reticulate* package provides tools to use python in R.
 *Tidyverse* is a collection of R packages designed for data science.
+
+## Part 6: Prepare the R script that generates the model
