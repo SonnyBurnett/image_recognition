@@ -1,39 +1,31 @@
 #
 # Example Image Recognition with Machine Learning
-# https://www.kaggle.com/biancaferreira/african-wildlife
-# https://www.kaggle.com/jerrinbright/cheetahtigerwolf 
 #
 
-# 
-# The following must be typed into the console:
-# install_tensorflow(extra_packages="pillow")
-# install_keras()
 
 library(tidyverse)
 library(keras)
 library(tensorflow)
 library(reticulate)
 
-# Download the African Wildlife dataset from Kaggle. 
-# We limit our engine to 4-5 species
-# So you should have folders “train” and “test” with 4 subfolders 
-# each with images for training and testing for each of the 4 species. 
-# (There is also a validation folder 
-# but we will create the training/validation split in the code to make it more generalizable).
 
-setwd("~/machinelearning/data/testwild")          # folder where the images are stored
-label_list <- dir("~/machinelearning/data/testwild/train/") # a list of all species in the correct order 
-output_n <- length(label_list)                    # total number of species
-save(label_list, file="label_list.Rdata")         # save it in a file for later
-path_train <- "~/machinelearning/data/testwild/train/"
-path_test <- "~/machinelearning/data/testwild/test/"
+path_data <- "~/machinelearning/data/testwild/"   # The folder where all your data is stored
+path_test_image <- "~/Pictures/animal.jpg"        # A picture that we will use to test later
+name_of_model <- "animal_mod"                     # The name of your model
+name_of_class_list <- "label_list.Rdata"          # The name of your class list
 
-width <- 224                                 # resizing the images to 224 pixels
-height<- 224                                 # width and height
+path_train <- paste(path_data,"train/",sep="")
+path_test <- paste(path_data,"test/",sep="")
+setwd(path_data) 
+label_list <- dir(path_train)                     # a list of all classes 
+output_n <- length(label_list)                    # total number of classes
+save(label_list, file=name_of_class_list)         # save it in a file for later
+
+width <- 224                                      # resizing the images to 224 pixels
+height<- 224                                      # width and height
 target_size <- c(width, height)
-rgb <- 3 #color channels
-
-test_image1 <- image_load("~/Pictures/animal.jpg", target_size = target_size)
+rgb <- 3                                          #color channels
+test_image1 <- image_load(path_test_image, target_size = target_size)
 
 # After we set the path to the training data, 
 # we use the image_data_generator() function to define the preprocessing of the data.
@@ -45,8 +37,7 @@ train_data_gen <- image_data_generator(rescale = 1/255,
 # The flow_images_from_directory() function batch-processes the images 
 # with the above defined generator function. 
 # With the following call you assign the folder names in your “train” folder as class labels, 
-# which is why you need to make sure that the sub-folders are named according to the bird species 
-# as shown in the second picture above. 
+# which is why you need to make sure that the sub-folders are named according to the classes. 
 # We create two objects for the training and validation data.
 # It should give us the confirmation about how many images were loaded:
 
@@ -140,7 +131,7 @@ hist <- model %>% fit_generator(
   verbose = 2
 )
 
-model %>% save_model_tf("animal_mod")
+model %>% save_model_tf(name_of_model)
 
 # Let’s see how well our model classifies the species in the hold-out test dataset. 
 # We use the same logic as above, creating an object with all the test images scaled to 224×224 pixels 
