@@ -134,26 +134,27 @@ The *reticulate* package provides tools to use python in R.
 
 ## Part 6: Prepare the R script that generates the model
 
-trainModel.R - R script to create and train the model
-app.R        - R Shiny app to use the model
+trainModel.R - R script to create and train the model\
+app.R        - R Shiny app to use the model\
 
 Open trainModel.R in R Studio.
-First we will load the 4 libraries we need.
+First we will load the 4 libraries we need.\
 Run them one-by-one to see if everything works as expected.
 
 If you prepared your folders correctly you only have to specify
 the path to the images.
-You can leave all other values untouched.
+You can leave all other values untouched.\
 `path_data <- "your_path_to_your_images"``
 
 The first part of the script sets the variables we need.
 
 In the second part the data is prepared so it can be used for training.
 - The images are split into a train set and a validation set (array of images).
-- Also the images are resized to make reduce processing time and to unify.
+- Also the images are resized to reduce processing time and to unify.
 - This can take a little bit of time if you have many images.
-- Your output will look somethiong like this:
-`Found 3274 images belonging to 6 classes.`
+- Your output will look something like this:
+
+`Found 3274 images belonging to 6 classes.`\
 `Found 817 images belonging to 6 classes.`
 
 In the Third part a model is created.
@@ -166,6 +167,7 @@ In the fourth part the model is trained with our image data.
 - The CPU will get hot on this one ;-)
 - The plot is optional but shows nicely the progress of the training.
 - You should get output like this:
+
 `Epoch 1/6`\
 `102/102 - 214s - loss: 0.8513 - accuracy: 0.7819 - val_loss: 0.2262 - val_accuracy: 0.9325`\
 `Epoch 2/6`\
@@ -178,6 +180,9 @@ In the fourth part the model is trained with our image data.
 `102/102 - 155s - loss: 0.0766 - accuracy: 0.9722 - val_loss: 0.1903 - val_accuracy: 0.9312`\
 `Epoch 6/6`\
 `102/102 - 156s - loss: 0.0670 - accuracy: 0.9759 - val_loss: 0.2527 - val_accuracy: 0.9112`\
+
+Note that in the last epoch your loss value should be close to zero
+and your accuracy value should be close to one.\
 
 In the Fifth part we test our model.
 
