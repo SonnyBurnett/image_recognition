@@ -17,7 +17,7 @@ name_of_model <- "animal_mod"                     # The name of your model
 name_of_class_list <- "label_list.Rdata"          # The name of your class list
 
 #
-# Define the variables
+# 1. Define the variables
 # No need to change anything unless you know what you're doing
 #
 
@@ -33,7 +33,7 @@ target_size <- c(width, height)
 rgb <- 3  
 
 #
-# Data preparation
+# 2. Data preparation
 #
 
 # set the variables for processing in the data generator
@@ -56,6 +56,8 @@ validation_images <- flow_images_from_directory(path_train,
                                                 class_mode = "categorical",
                                                 classes = label_list,
                                                 seed = 2021)
+
+# 3. Create a model
 
 # Generate a model based on a standard learning model (imgagenet) for image recognition
 # We do not include the top layer. That will be our own images.
@@ -106,16 +108,22 @@ model_function <- function(learning_rate = 0.001,
 }
 
 # Here we create the model by calling the function
+
+model <- model_function()
+
+# 4. Train the model
+
 # fit - the function that does the actual training of the model
 # epochs - number of max iterations on the input data
 # The model is not trained for a number of iterations given by epochs, 
 # but merely until the epoch of index epochs is reached.
 
-model <- model_function()
 batch_size <- 32
 epochs <- 6
 
-hist <- model %>% fit_generator(
+#hist <- model %>% fit_generator(
+  
+hist <- model %>% fit(
   train_images,
   steps_per_epoch = train_images$n %/% batch_size, 
   epochs = epochs, 
@@ -124,6 +132,8 @@ hist <- model %>% fit_generator(
   verbose = 2
 )
 model %>% save_model_tf(name_of_model)
+
+# 5. Test the model
 
 # Let’s see how well our model classifies the species in the hold-out test dataset. 
 # We use the same logic as above, creating an object with all the test images scaled to 224×224 pixels 
