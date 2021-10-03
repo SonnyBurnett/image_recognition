@@ -166,18 +166,18 @@ In the fourth part the model is trained with our image data.
 - The CPU will get hot on this one ;-)
 - The plot is optional but shows nicely the progress of the training.
 - You should get output like this:
-`Epoch 1/6`
-`102/102 - 214s - loss: 0.8513 - accuracy: 0.7819 - val_loss: 0.2262 - val_accuracy: 0.9325`
-`Epoch 2/6`
-`102/102 - 234s - loss: 0.2046 - accuracy: 0.9294 - val_loss: 0.2431 - val_accuracy: 0.9175`
-`Epoch 3/6`
-`102/102 - 158s - loss: 0.1675 - accuracy: 0.9399 - val_loss: 0.2010 - val_accuracy: 0.9300`
-`Epoch 4/6`
-`102/102 - 157s - loss: 0.1096 - accuracy: 0.9605 - val_loss: 0.1754 - val_accuracy: 0.9400`
-`Epoch 5/6`
-`102/102 - 155s - loss: 0.0766 - accuracy: 0.9722 - val_loss: 0.1903 - val_accuracy: 0.9312`
-`Epoch 6/6`
-`102/102 - 156s - loss: 0.0670 - accuracy: 0.9759 - val_loss: 0.2527 - val_accuracy: 0.9112`
+`Epoch 1/6`\
+`102/102 - 214s - loss: 0.8513 - accuracy: 0.7819 - val_loss: 0.2262 - val_accuracy: 0.9325`\
+`Epoch 2/6`\
+`102/102 - 234s - loss: 0.2046 - accuracy: 0.9294 - val_loss: 0.2431 - val_accuracy: 0.9175`\
+`Epoch 3/6`\
+`102/102 - 158s - loss: 0.1675 - accuracy: 0.9399 - val_loss: 0.2010 - val_accuracy: 0.9300`\
+`Epoch 4/6`\
+`102/102 - 157s - loss: 0.1096 - accuracy: 0.9605 - val_loss: 0.1754 - val_accuracy: 0.9400`\
+`Epoch 5/6`\
+`102/102 - 155s - loss: 0.0766 - accuracy: 0.9722 - val_loss: 0.1903 - val_accuracy: 0.9312`\
+`Epoch 6/6`\
+`102/102 - 156s - loss: 0.0670 - accuracy: 0.9759 - val_loss: 0.2527 - val_accuracy: 0.9112`\
 
 In the Fifth part we test our model.
 

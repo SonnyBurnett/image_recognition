@@ -87,23 +87,24 @@ freeze_weights(mod_base)
 # optimizer - includes the method to train your machine/deep learning model.
 # metrics - A metric is a function that is used to judge the performance of your model.
 
-model_function <- function(learning_rate = 0.001, 
-                           dropoutrate=0.2, n_dense=1024){
+model_function <- function(){
   k_clear_session()
   
   model <- keras_model_sequential() %>%
     mod_base %>% 
     layer_global_average_pooling_2d() %>% 
-    layer_dense(units = n_dense) %>%
+    layer_dense(units = 1024) %>%
     layer_activation("relu") %>%
-    layer_dropout(dropoutrate) %>%
+    layer_dropout(0.2) %>%
     layer_dense(units=output_n, activation="softmax")
   
+  # Compile the model
   model %>% compile(
-    loss = "categorical_crossentropy",
-    optimizer = optimizer_adam(lr = learning_rate),
-    metrics = "accuracy"
+    loss = 'categorical_crossentropy',
+    optimizer = 'adam',
+    metrics = 'accuracy'
   )
+  
   return(model)
 }
 
@@ -119,7 +120,7 @@ model <- model_function()
 # but merely until the epoch of index epochs is reached.
 
 batch_size <- 32
-epochs <- 6
+epochs <- 2
 
 #hist <- model %>% fit_generator(
   
