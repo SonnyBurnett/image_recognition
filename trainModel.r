@@ -8,6 +8,10 @@ library(keras)
 library(tensorflow)
 library(reticulate)
 
+# set warn to 0 to see the warnings again
+options(warn=-1)
+options(digits = 2)
+getOption("digits")
 #
 # Put your own values below!!!
 #
@@ -120,7 +124,7 @@ model <- model_function()
 # but merely until the epoch of index epochs is reached.
 
 batch_size <- 32
-epochs <- 2
+epochs <- 6
 
 #hist <- model %>% fit_generator(
   
@@ -130,13 +134,16 @@ hist <- model %>% fit(
   epochs = epochs, 
   validation_data = validation_images,
   validation_steps = validation_images$n %/% batch_size,
-  verbose = 2
+  verbose = 6
 )
-model %>% save_model_tf(name_of_model)
+model %>% save_model_tf(name_of_model, overwrite = TRUE,
+                        include_optimizer = TRUE,
+                        signatures = NULL,
+                        options = NULL)
 
 # 5. Test the model
 
-# Let’s see how well our model classifies the species in the hold-out test dataset. 
+# Let’s see how well our model classifies the test dataset. 
 # We use the same logic as above, creating an object with all the test images scaled to 224×224 pixels 
 # as set in the beginning. 
 # Then we evaluate our model on these test images:
@@ -150,3 +157,19 @@ test_images <- flow_images_from_directory(path_test,
                                           shuffle = F,
                                           seed = 2021)
 
+# get the names of the folders. This is also the name of the class to predict
+test_names <- list.files(path = path_test, pattern = NULL, all.files = FALSE,
+                         full.names = FALSE, recursive = TRUE,
+                         ignore.case = FALSE, include.dirs = FALSE, no.. = FALSE)
+tn <- sapply(strsplit(test_names,"/"), `[`, 1)
+
+# predict all test images
+pred <- model %>% predict(test_images)
+
+# make a nice matrix to see how well the model does it
+# the first column is the class we should predict
+# the other columns show the prediction certainty per class
+pred2 <- round(pred, digits = 1)
+colnames(pred2) <- label_list
+rownames(pred2) <- tn
+pred2

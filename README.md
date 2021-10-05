@@ -144,7 +144,7 @@ Run them one-by-one to see if everything works as expected.
 If you prepared your folders correctly you only have to specify
 the path to the images.
 You can leave all other values untouched.\
-`path_data <- "your_path_to_your_images"``
+`path_data <- "your_path_to_your_images"`
 
 The first part of the script sets the variables we need.
 
@@ -179,10 +179,10 @@ In the fourth part the model is trained with our image data.
 `Epoch 5/6`\
 `102/102 - 155s - loss: 0.0766 - accuracy: 0.9722 - val_loss: 0.1903 - val_accuracy: 0.9312`\
 `Epoch 6/6`\
-`102/102 - 156s - loss: 0.0670 - accuracy: 0.9759 - val_loss: 0.2527 - val_accuracy: 0.9112`\
+`102/102 - 156s - loss: 0.0670 - accuracy: 0.9759 - val_loss: 0.2527 - val_accuracy: 0.9112`
 
 Note that in the last epoch your loss value should be close to zero
-and your accuracy value should be close to one.\
+and your accuracy value should be close to one.
 
 In the Fifth part we test our model.
 

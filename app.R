@@ -42,7 +42,8 @@ library(tidyverse)        # An opinionated collection of R packages designed for
 #         Also set some variables and settings
 #
 
-model <- load_model_tf("/Users/tacobakker/rstudio/imagerecognition/whatAnimal/www/animal_mod")
+model <- load_model_tf("/Users/tacobakker/machinelearning/data/testwild/animal_mod")
+#model <- load_model_tf("/Users/tacobakker/rstudio/imagerecognition/whatAnimal/www/animal_mod")
 load("/Users/tacobakker/rstudio/imagerecognition/whatAnimal/www/label_list.Rdata")
 target_size <- c(224,224,3)
 options(scipen=999) #prevent scientific number formatting
@@ -116,7 +117,7 @@ server <- function(input, output) {
     x <- x/255
     pred <- model %>% predict(x)
     pred <- data.frame("Animal" = label_list, "Prediction" = t(pred))
-    pred <- pred[order(pred$Prediction, decreasing=T),][1:5,]
+    pred <- pred[order(pred$Prediction, decreasing=T),][1:length(label_list),]
     pred$Prediction <- sprintf("%.2f %%", 100*pred$Prediction)
     pred
   })
