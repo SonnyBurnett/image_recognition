@@ -173,3 +173,7 @@ pred2 <- round(pred, digits = 1)
 colnames(pred2) <- label_list
 rownames(pred2) <- tn
 pred2
+table(test_images$classes)
+plot(as.raster(test_images[[1]][[1]][1,,,]))
+typeof(test_images[1])
+test_images[1][1]
