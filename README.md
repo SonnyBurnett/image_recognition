@@ -200,12 +200,12 @@ Name: app.R (standard) - see example in the code.
 
 
 The app consists of 6 parts:
-- A. Initial work
-- B. Load libraries
-- C. Load model and data
-- D. Define the User Interface
-- E. Define the Data Processing
-- F. Create the app
+- 7.A. Initial work
+- 7.B. Load libraries
+- 7.C. Load model and data
+- 7.D. Define the User Interface
+- 7.E. Define the Data Processing
+- 7.F. Create the app
 
 
 ### Part 7.A: Initial work. (Only needs to be done once)
@@ -222,6 +222,8 @@ install.packages("rsconnect")
 
 
 ### Part 7.B: Load the libraries
+
+Look in the code for the libraries that need to be loaded.
 
 ### Part 7.C: Load the model and the label list
 
@@ -242,7 +244,9 @@ Output variables: \
 "output_prediction_text"  type: tableOutput     show prediction output, per class
 
 
-### Part 7.E: server - Retrieve, Process and Show the data in the UI
+### Part 7.E: Server - Define the data processing
+
+Retrieve, Process and Show the data in the UI
 
 Retrieve: Input variable "input_image" is retrieved via "input$input_image"
 
@@ -258,3 +262,5 @@ Show:     Output variable "output_prediction_text" is shown by "output$output_pr
           But it has to be retrieved first.
 
 ### Part 7.F: create the shinyApp
+
+This is basically just a simple call to start the dashboard.
