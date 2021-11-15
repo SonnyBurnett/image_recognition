@@ -206,7 +206,7 @@ The app consists of 6 parts:
 - F. Create the app
 
 
-# Part 7.A: Initial work. (Only needs to be done once)
+### Part 7.A: Initial work. (Only needs to be done once)
 
 - Run the R script that creates and saves your prediction model.
 - Create a folder on your computer, and name it as you want your app the be called. (e.g. imageApp)
@@ -216,44 +216,42 @@ The app consists of 6 parts:
 - Install the packages if needed.
 install.packages("shiny") \
 install.packages("shinydashboard") \
-install.packages("rsconnect") \
+install.packages("rsconnect")
 
 
-# Part 7.B: Load the libraries
+### Part 7.B: Load the libraries
 
-# Part 7.C: Load the model and the label list
+### Part 7.C: Load the model and the label list
 
 Also set some variables and settings
 
 
-# Part 7.D: UI - Definition of the User Interface, with the variables.
+### Part 7.D: UI - Definition of the User Interface, with the variables.
 
-The UI consists of 3 elements: \
-     (1) Header \
-     (2) Sidebar \
-     (3) Body \
+The UI consists of 3 elements:
+- Header
+  No variables, just static content
+- Sidebar
+Input variable: "input_image"    type: File 
+- Body
+Output variables:
+"output_image"            type: imageOutput     the uploaded photo
+"warning_text"            type: textOutput      show message if prediction is unclear
+"output_prediction_text"  type: tableOutput     show prediction output, per class
 
-     (1) Header \
-         No variables, just static content \
-     (2) Sidebar \
-         Input variable: "input_image"    type: File \
-     (3) Body \
-         Output variables: \
-           "output_image"            type: imageOutput     the uploaded photo \
-           "warning_text"            type: textOutput      show message if prediction is unclear \
-           "output_prediction_text"  type: tableOutput     show prediction output, per class \
+### Part 7.E: server - Retrieve, Process and Show the data in the UI
 
-# Part 7.E: server - Retrieve, Process and Show the data in the UI
+Retrieve: Input variable "input_image" is retrieved via "input$input_image"
 
-Retrieve: Input variable "input_image" is retrieved via "input$input_image" \
 Process:  The input variable is loaded into the model \
           which produces a prediction (a table with percentages) \
-          Note: this is a function that is called in the "Show" part. \
+          Note: this is a function that is called in the "Show" part.
+
 Show:     Output variable "output_prediction_text" is shown by "output$output_prediction_text" \
           by calling the prediction function \
           Output variable "warning_text" is shown by "output$warning_text" \
           But only if the highest prediction is lower or equal to 30% \
           Output variable "output_image" is shown by "output$output_image" \
-          But it has to be retrieved first. \
+          But it has to be retrieved first.
 
-# Part 7.F: create the shinyApp
+### Part 7.F: create the shinyApp
