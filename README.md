@@ -194,7 +194,9 @@ Run everything line-by-line to check if things work as expected.
 R Studio has a nice package called R Shiny.
 Shiny is an R package that makes it easy to build interactive web apps straight from R.
 
-Purpose: Load a jpg/jepg picture and the dashboard will show what it is (or not)
+Purpose: Load a jpg/jepg picture and the dashboard will show what it is (or not.
+
+Name: app.R (standard) - see example in the code.
 
 
 The app consists of 6 parts:
@@ -229,15 +231,16 @@ Also set some variables and settings
 ### Part 7.D: UI - Definition of the User Interface, with the variables.
 
 The UI consists of 3 elements:
-- Header
+- Header \
   No variables, just static content
-- Sidebar
-Input variable: "input_image"    type: File 
-- Body
-Output variables:
-"output_image"            type: imageOutput     the uploaded photo
-"warning_text"            type: textOutput      show message if prediction is unclear
+- Sidebar \
+Input variable: "input_image"    type: File
+- Body \
+Output variables: \
+"output_image"            type: imageOutput     the uploaded photo \
+"warning_text"            type: textOutput      show message if prediction is unclear \
 "output_prediction_text"  type: tableOutput     show prediction output, per class
+
 
 ### Part 7.E: server - Retrieve, Process and Show the data in the UI
 
