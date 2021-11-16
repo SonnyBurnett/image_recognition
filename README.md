@@ -215,7 +215,7 @@ The app consists of 6 parts:
 - Within this folder create a folder called "www"
 - Copy the model and the label list to the www folder (folder: "animal_mod", file: "label_list.Rdata")
 - In the console type: setwd("<path_to_your_imageApp>"). This is for local use only.
-- Install the packages if needed.
+- Install the packages if needed. \
 install.packages("shiny") \
 install.packages("shinydashboard") \
 install.packages("rsconnect")
